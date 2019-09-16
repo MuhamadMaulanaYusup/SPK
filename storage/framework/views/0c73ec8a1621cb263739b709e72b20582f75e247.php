@@ -8,10 +8,10 @@
                     <p class="text-semibold no-margin">Foto Profil</p>
 
                     <div class="thumb thumb-rounded thumb-slide">
-                        <img src="{{ asset($foto) }}" alt="">
+                        <img src="<?php echo e(asset($foto)); ?>" alt="">
                         <div class="caption">
                             <span>
-                                <a href="{{ asset($foto) }}" class="btn bg-green-300 btn-icon" data-popup="lightbox"><i
+                                <a href="<?php echo e(asset($foto)); ?>" class="btn bg-green-300 btn-icon" data-popup="lightbox"><i
                                         class="icon-zoomin3"></i></a>
 
                             </span>
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="caption text-center">
-                        <p class="text-semibold no-margin">{{ $user->name }}</p>
+                        <p class="text-semibold no-margin"><?php echo e($user->name); ?></p>
                         <ul class="icons-list mt-15">
                         </ul>
                     </div>
@@ -33,32 +33,32 @@
                 <table class="table">
                     <tr>
                         <td>Nama Lengkap</td>
-                        <td> : {{ $user->name }} </td>
+                        <td> : <?php echo e($user->name); ?> </td>
                     </tr>
                     <tr>
                         <td>TTL</td>
-                        <td> : {{ $user->tempat_lahir }},
-                            {{ Carbon\Carbon::parse($user->tgl_lahir)->formatLocalized('%d %B %Y') }} </td>
+                        <td> : <?php echo e($user->tempat_lahir); ?>,
+                            <?php echo e(Carbon\Carbon::parse($user->tgl_lahir)->formatLocalized('%d %B %Y')); ?> </td>
                     </tr>
 
                     <tr>
                         <td>Umur</td>
-                        <td> : {{ $pelamar->umur }}</td>
+                        <td> : <?php echo e($pelamar->umur); ?></td>
                     </tr>
 
                     <tr>
                         <td>IPK</td>
-                        <td> : {{ $pelamar->ipk }}</td>
+                        <td> : <?php echo e($pelamar->ipk); ?></td>
                     </tr>
 
                     <tr>
                         <td>Hasil Tes</td>
-                        <td> : {{ $pelamar->umum }}</td>
+                        <td> : <?php echo e($pelamar->umum); ?></td>
                     </tr>
 
                     <tr>
                         <td>E-Mail</td>
-                        <td> : {{ $user->email }}</td>
+                        <td> : <?php echo e($user->email); ?></td>
                     </tr>
 
                     <tr>
@@ -71,10 +71,11 @@
                     </tr>
 
                 </table>
-                <a href="{{ url('/admin/profil/approve') }}/{{ $pelamar->id }}" class="btn btn-success">Lolos Tahap
+                <a href="<?php echo e(url('/admin/profil/approve')); ?>/<?php echo e($pelamar->id); ?>" class="btn btn-success">Lolos Tahap
                     Selanjutnya</a>
-                <a href="{{ url('pelamar/gagal/') }}/{{ $pelamar->id }}" class="btn btn-danger">Gagal</a>
+                <a href="<?php echo e(url('pelamar/gagal/')); ?>/<?php echo e($pelamar->id); ?>" class="btn btn-danger">Gagal</a>
             </div>
         </div>
     </div>
 </div>
+<?php /**PATH D:\Program Proyek Akhir\SPK\resources\views/admin/pelamar/identitas.blade.php ENDPATH**/ ?>

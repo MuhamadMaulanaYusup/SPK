@@ -1,25 +1,24 @@
-@extends('layouts.dashboardMaster')
-@section('title','| Dashboard Admin')
-@section('dashboardActive','active')
+<?php $__env->startSection('title','| Dashboard Admin'); ?>
+<?php $__env->startSection('dashboardActive','active'); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
 
 <!-- Theme JS files -->
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/visualization/d3/d3.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/visualization/d3/d3_tooltip.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/forms/selects/bootstrap_multiselect.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/ui/moment/moment.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/pickers/daterangepicker.js')}}"></script>
-<link href="{{asset('template/material/assets/css/icons/fontawesome/styles.min.css')}}" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="{{asset('template/material/assets/js/core/app.js')}}"></script>
-<script type="text/javascript" src="{{asset('template/material/assets/js/pages/dashboard.js')}}"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/visualization/d3/d3.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/visualization/d3/d3_tooltip.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/forms/styling/switchery.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/forms/styling/uniform.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/forms/selects/bootstrap_multiselect.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/ui/moment/moment.min.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/pickers/daterangepicker.js')); ?>"></script>
+<link href="<?php echo e(asset('template/material/assets/css/icons/fontawesome/styles.min.css')); ?>" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/core/app.js')); ?>"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/pages/dashboard.js')); ?>"></script>
 
-<script type="text/javascript" src="{{asset('template/material/assets/js/plugins/ui/ripple.min.js')}}"></script>
+<script type="text/javascript" src="<?php echo e(asset('template/material/assets/js/plugins/ui/ripple.min.js')); ?>"></script>
 <!-- /theme JS files -->
-@endsection
-@section('header')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('header'); ?>
 <!-- Page header -->
 <div class="page-header">
 	<div class="page-header-content">
@@ -27,16 +26,16 @@
 			<h4>
 				<i class="icon-arrow-left52 position-left"></i>
 				<span class="text-semibold">Admin</span> - Dashboard
-				<small class="display-block">Hello, {{ Auth::user()->name }}!</small>
+				<small class="display-block">Hello, <?php echo e(Auth::user()->name); ?>!</small>
 			</h4>
 		</div>
 
 	</div>
 </div>
 <!-- /page header -->
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <!-- Dashboard content -->
 <div class="row">
 	<div class="col-lg-8">
@@ -68,7 +67,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data as $key => $value)
+						<?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<tr>
 							<td>
 								<div class="media-left">
@@ -76,7 +75,7 @@
 								</div>
 
 								<div class="media-left">
-									<h5 class="text-semibold no-margin">{{$value->posisi}}</h5>
+									<h5 class="text-semibold no-margin"><?php echo e($value->posisi); ?></h5>
 									<ul class="list-inline list-inline-condensed no-margin">
 										<li>
 											<span class="status-mark border-success"></span>
@@ -123,10 +122,10 @@
 							</td>
 
 							<td class="text-right col-md-2">
-								<a href="{{url('admin/lowongan')}}/{{$value->id_lowongan}}" class="btn bg-indigo-300"><i class="icon-statistics position-left"></i> View report</a>
+								<a href="<?php echo e(url('admin/lowongan')); ?>/<?php echo e($value->id_lowongan); ?>" class="btn bg-indigo-300"><i class="icon-statistics position-left"></i> View report</a>
 							</td>
 						</tr>
-						@endforeach
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 					</tbody>
 				</table>
 			</div>
@@ -164,4 +163,6 @@
 <!-- /dashboard content -->
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboardMaster', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Program Proyek Akhir\SPK\resources\views/admin/index.blade.php ENDPATH**/ ?>

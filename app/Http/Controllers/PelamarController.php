@@ -186,4 +186,23 @@ class PelamarController extends Controller
     {
         //
     }
+
+    public function approve($id){
+        $pelamar = Pelamar::find($id);
+        if ($pelamar->status == 1) {
+            $pelamar->status =2;  
+        }elseif($pelamar->status == 2){
+            $pelamar->status = 3;
+        
+        }
+        $pelamar->save();
+        return redirect('/admin/profile'.'/'.$id);
+    }
+
+    public function gagal($id){
+        $pelamar = Pelamar::find($id);
+        $pelamar->kondisi = "not Active";
+        $pelamar->save();
+        return redirect('/admin/profile'.'/'.$id);
+    }
 }
